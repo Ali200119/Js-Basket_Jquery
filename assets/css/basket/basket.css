@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+  height: 80px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+header .box {
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .box .home {
+  padding: 8px 22px;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  border: 1px solid white;
+  background-color: black;
+  transition: 0.3s;
+}
+header .box .home:hover {
+  background-color: white;
+  color: black;
+}
+header .box .cart {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+main .box {
+  width: 95%;
+}
+main .box .header {
+  text-align: center;
+}
+main .box button {
+  padding: 7px 13px;
+  border-radius: 7px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  transition: 0.3s;
+  margin-top: 30px;
+}
+main .box button:hover {
+  background-color: black;
+  color: white;
+}
+main .box table {
+  margin-top: 35px;
+}
+main .box table tbody tr td img {
+  width: 150px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .box table tbody tr td .plus, main .box table tbody tr td .minus {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+}
+main .box table tbody tr td .delete {
+  font-size: 20px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+main .box h3 {
+  margin-top: 70px;
+  margin-bottom: 35px;
+}
+main .box .alert {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+main .box .alert h1 {
+  font-size: 40px;
+  margin-top: 50px;
+}
+main .box .deactive {
+  display: none;
+}/*# sourceMappingURL=basket.css.map */
