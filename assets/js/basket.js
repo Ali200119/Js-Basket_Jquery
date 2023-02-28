@@ -14,8 +14,6 @@ if (products != null && products.length != 0) {
     clearAll.classList.remove("deactive");
     header.classList.remove("deactive");
 
-    let totalPrice = 0;
-
     for (const product of products) {
         table.lastElementChild.innerHTML += `<tr>
             <td class="deactive">${product.id}</td>
@@ -29,11 +27,9 @@ if (products != null && products.length != 0) {
             <td><i class="fa-solid fa-minus minus"></i></td>
             <td><i class="fa-solid fa-trash delete"></i></td>
         </tr>`;
-
-        totalPrice += product.price * product.count;
     }
 
-    total.innerText = `Total: $${totalPrice}`;
+    calculateTotalPrice(0);
 
     let plusCount = document.querySelectorAll("main table tbody tr td .plus");
 
@@ -70,8 +66,8 @@ if (products != null && products.length != 0) {
     for (const remove of deleteProduct) {
         remove.addEventListener("click", function () {
             removeProduct(this);
-
-            window.location.reload();
+            this.parentNode.parentNode.remove();
+            calculateTotalPrice(0);
         })
     }
 
@@ -100,12 +96,14 @@ else {
 
 
 
-function removeProduct(element) {
-    let filterBasket = products.filter(p => p.id != parseInt(element.parentNode.parentNode.firstElementChild.innerText));
-    localStorage.setItem("basket", JSON.stringify(filterBasket));
-    let filteredBasket = JSON.parse(localStorage.getItem("basket"));
 
-    if (filteredBasket.length != 0) {
+
+
+function removeProduct(element) {
+    products = products.filter(p => p.id != parseInt(element.parentNode.parentNode.firstElementChild.innerText));
+    localStorage.setItem("basket", JSON.stringify(products));
+
+    if (products.length != 0) {
         alert.classList.add("deactive");
         table.classList.remove("deactive");
         total.classList.remove("deactive");
@@ -123,11 +121,19 @@ function removeProduct(element) {
 
     }
 
-    if (filterBasket.length == 0) {
+    if (products.length == 0) {
         document.querySelector("header .cart sup").innerText = 0;
     }
 
     else {
-        document.querySelector("header .cart sup").innerText = filterBasket.length;
+        document.querySelector("header .cart sup").innerText = products.length;
     }
+}
+
+function calculateTotalPrice(totalPrice) {
+    for (const product of products) {
+        totalPrice += product.price * product.count
+    }
+
+    total.innerText = `Total: $${totalPrice}`;
 }

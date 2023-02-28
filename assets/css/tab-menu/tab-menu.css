@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+}
+main .container {
+  width: 70%;
+}
+main .container .tab-menu {
+  height: 300px;
+  background-color: gray;
+  border-radius: 8px;
+}
+main .container .tab-menu .menu {
+  height: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+main .container .tab-menu .menu a {
+  text-decoration: none;
+  color: white;
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+main .container .tab-menu .menu a:first-child {
+  background-color: black;
+}
+main .container .tab-menu .content {
+  padding: 40px;
+}
+main .container .tab-menu .content p {
+  color: white;
+  display: none;
+  font-size: large;
+}
+main .container .tab-menu .content p:first-child {
+  display: unset;
+}/*# sourceMappingURL=tab-menu.css.map */
